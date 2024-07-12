@@ -14,7 +14,7 @@ import (
 // @description This is a sample server for Your API.
 // @host localhost:8080
 // @BasePath /
-func Router(c *gin.Engine, q *router.Rou) {
+func Router(c *gin.Engine, q *router.Router) {
 	// Initializes the swagger
 	c.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 

@@ -7,12 +7,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type Rou struct {
-	a *usecase.K
+type Router struct {
+	a *usecase.Usecase
 }
 
-func Init(r *usecase.K) *Rou {
-	return &Rou{a: r}
+// Init initializes a new Router instance with a usecase.K instance
+func Init(r *usecase.Usecase) *Router {
+	return &Router{a: r}
 }
 
 type HelloResponse struct {
@@ -22,84 +23,89 @@ type HelloResponse struct {
 type Print struct {
 	Print string `json:"print"`
 }
+
 type Length struct {
 	Length int `json:"length"`
 }
 
-// @Summary Print all elements
-// @Description Retrieve a hello message from the server
+// Print handles GET requests to retrieve all elements in the linked list
+// @Summary Retrieve all elements
+// @Description Retrieve all elements in the linked list and return them as a concatenated string
 // @Produce json
 // @Success 200 {object} Print
 // @Router /print [get]
-func (w *Rou) Print(ctx *gin.Context) {
-	e := w.a.Print()
+func (w *Router) Print(ctx *gin.Context) {
+	message := w.a.Print()
 	ctx.JSON(http.StatusOK, Print{
-		Print: e,
+		Print: message,
 	})
 }
 
-// @Summary Save the data
-// @Description Insert data at the start
+// Insertatstarting handles POST requests to insert data at the start of the linked list
+// @Summary Insert data at the start
+// @Description Insert a new element at the beginning of the linked list
 // @Produce json
 // @Param key path string true "Key parameter"
 // @Success 200 {object} HelloResponse
 // @Router /start/{key} [post]
-func (w *Rou) Insertatstarting(ctx *gin.Context) {
-	s := ctx.Param("key")
-	w.a.Insertatstarting(s)
+func (w *Router) Insertatstarting(ctx *gin.Context) {
+	data := ctx.Param("key")
+	w.a.Insertatstarting(data)
 	ctx.JSON(http.StatusOK, HelloResponse{
 		Mess: "added successfully",
 	})
 }
 
-// @Summary Length of linked list
-// @Description Retrieve a length of the linked list from the server
+// Length handles GET requests to retrieve the length of the linked list
+// @Summary Retrieve the length of the linked list
+// @Description Retrieve and return the number of elements in the linked list
 // @Produce json
 // @Success 200 {object} Length
 // @Router /length [get]
-func (w *Rou) Length(ctx *gin.Context) {
-	e := w.a.Length()
+func (w *Router) Length(ctx *gin.Context) {
+	length := w.a.Length()
 	ctx.JSON(http.StatusOK, Length{
-		Length: e,
+		Length: length,
 	})
 }
 
-// @Summary Save the data at the end of the linked list
-// @Description Insert data at the end
+// Insertatending handles POST requests to insert data at the end of the linked list
+// @Summary Insert data at the end
+// @Description Insert a new element at the end of the linked list
 // @Produce json
 // @Param key path string true "Key parameter"
 // @Success 200 {object} HelloResponse
 // @Router /end/{key} [post]
-func (w *Rou) Insertatending(ctx *gin.Context) {
-	s := ctx.Param("key")
-	w.a.InsertAtEnding(s)
+func (w *Router) Insertatending(ctx *gin.Context) {
+	data := ctx.Param("key")
+	w.a.InsertAtEnding(data)
 	ctx.JSON(http.StatusOK, HelloResponse{
 		Mess: "added successfully",
 	})
 }
 
-// @Summary delete at begining
-// @Description deleting the data in the at begining
+// DelAtBeg handles DELETE requests to delete the first element in the linked list
+// @Summary Delete the first element
+// @Description Delete the first element in the linked list
 // @Produce json
 // @Success 200 {object} HelloResponse
 // @Router /front [delete]
-func (w *Rou) DelAtBeg(ctx *gin.Context) {
-
-	s := w.a.DelAtBeg()
+func (w *Router) DelAtBeg(ctx *gin.Context) {
+	message := w.a.DelAtBeg()
 	ctx.JSON(http.StatusOK, HelloResponse{
-		Mess: s,
+		Mess: message,
 	})
 }
 
-// @Summary delete at ending
-// @Description deleting the data in the ending
+// DelAtEnd handles DELETE requests to delete the last element in the linked list
+// @Summary Delete the last element
+// @Description Delete the last element in the linked list
 // @Produce json
 // @Success 200 {object} HelloResponse
 // @Router /end [delete]
-func (w *Rou) DelAtEnd(ctx *gin.Context) {
-
-	s := w.a.DelAtEnd()
+func (w *Router) DelAtEnd(ctx *gin.Context) {
+	message := w.a.DelAtEnd()
 	ctx.JSON(http.StatusOK, HelloResponse{
-		Mess: s,
+		Mess: message,
 	})
 }

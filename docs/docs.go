@@ -17,11 +17,11 @@ const docTemplate = `{
     "paths": {
         "/end": {
             "delete": {
-                "description": "deleting the data in the ending",
+                "description": "Delete the last element in the linked list",
                 "produces": [
                     "application/json"
                 ],
-                "summary": "delete at ending",
+                "summary": "Delete the last element",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -34,11 +34,11 @@ const docTemplate = `{
         },
         "/end/{key}": {
             "post": {
-                "description": "Insert data at the end",
+                "description": "Insert a new element at the end of the linked list",
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Save the data at the end of the linked list",
+                "summary": "Insert data at the end",
                 "parameters": [
                     {
                         "type": "string",
@@ -60,11 +60,11 @@ const docTemplate = `{
         },
         "/front": {
             "delete": {
-                "description": "deleting the data in the at begining",
+                "description": "Delete the first element in the linked list",
                 "produces": [
                     "application/json"
                 ],
-                "summary": "delete at begining",
+                "summary": "Delete the first element",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -77,11 +77,11 @@ const docTemplate = `{
         },
         "/length": {
             "get": {
-                "description": "Retrieve a length of the linked list from the server",
+                "description": "Retrieve and return the number of elements in the linked list",
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Length of linked list",
+                "summary": "Retrieve the length of the linked list",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -94,11 +94,11 @@ const docTemplate = `{
         },
         "/print": {
             "get": {
-                "description": "Retrieve a hello message from the server",
+                "description": "Retrieve all elements in the linked list and return them as a concatenated string",
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Print all elements",
+                "summary": "Retrieve all elements",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -111,11 +111,11 @@ const docTemplate = `{
         },
         "/start/{key}": {
             "post": {
-                "description": "Insert data at the start",
+                "description": "Insert a new element at the beginning of the linked list",
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Save the data",
+                "summary": "Insert data at the start",
                 "parameters": [
                     {
                         "type": "string",

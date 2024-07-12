@@ -7,9 +7,9 @@ type Node struct {
 
 type Functions interface {
 	Print()
-	Ins_Beg()
-	Ins_End()
-	Len()
-	Del_Beg()
-	Del_End()
+	Insertatstarting()
+	InsertAtEnding()
+	Length()
+	DelAtBeg()
+	DelAtEnd()
 }

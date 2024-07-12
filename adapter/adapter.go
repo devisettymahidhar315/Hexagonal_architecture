@@ -4,15 +4,18 @@ import (
 	"app/core"
 )
 
-type JK struct {
+// Adapter represents a singly linked list with a head node.
+type Adapter struct {
 	head *core.Node
 }
 
-func Init() *JK {
-	return &JK{head: nil}
+// Init initializes an empty linked list and returns an Adapter instance.
+func Init() *Adapter {
+	return &Adapter{head: nil}
 }
 
-func (j *JK) Print() string {
+// Print traverses the linked list and concatenates the Data of each node into a single string.
+func (j *Adapter) Print() string {
 	current := j.head
 	var s string
 	s = ""
@@ -23,12 +26,14 @@ func (j *JK) Print() string {
 	return s
 }
 
-func (l *JK) InsertAtBeginning(data string) {
+// InsertAtBeginning inserts a new node with the given data at the beginning of the linked list.
+func (l *Adapter) InsertAtBeginning(data string) {
 	newNode := &core.Node{Data: data, Next: l.head}
 	l.head = newNode
 }
 
-func (l *JK) InsertAtEnding(data string) {
+// InsertAtEnding inserts a new node with the given data at the end of the linked list.
+func (l *Adapter) InsertAtEnding(data string) {
 	newNode := &core.Node{Data: data, Next: nil}
 	if l.head == nil {
 		l.head = newNode
@@ -41,7 +46,8 @@ func (l *JK) InsertAtEnding(data string) {
 	}
 }
 
-func (l *JK) Length() int {
+// Length returns the number of nodes in the linked list.
+func (l *Adapter) Length() int {
 	var len = 0
 	ite := l.head
 	for ite != nil {
@@ -51,7 +57,8 @@ func (l *JK) Length() int {
 	return len
 }
 
-func (l *JK) DelAtBeg() string {
+// DelAtBeg deletes the first node in the linked list and returns a success message.
+func (l *Adapter) DelAtBeg() string {
 	if l.head == nil {
 		return "no elements in the linked list"
 	} else {
@@ -60,7 +67,8 @@ func (l *JK) DelAtBeg() string {
 	}
 }
 
-func (l *JK) DelAtEnd() string {
+// DelAtEnd deletes the last node in the linked list and returns a success message.
+func (l *Adapter) DelAtEnd() string {
 	if l.head == nil {
 		return "no elements in the linked list"
 	} else if l.head.Next == nil {

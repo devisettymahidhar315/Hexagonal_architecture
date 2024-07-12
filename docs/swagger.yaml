@@ -19,7 +19,7 @@ info:
 paths:
   /end:
     delete:
-      description: deleting the data in the ending
+      description: Delete the last element in the linked list
       produces:
       - application/json
       responses:
@@ -27,10 +27,10 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/router.HelloResponse'
-      summary: delete at ending
+      summary: Delete the last element
   /end/{key}:
     post:
-      description: Insert data at the end
+      description: Insert a new element at the end of the linked list
       parameters:
       - description: Key parameter
         in: path
@@ -44,10 +44,10 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/router.HelloResponse'
-      summary: Save the data at the end of the linked list
+      summary: Insert data at the end
   /front:
     delete:
-      description: deleting the data in the at begining
+      description: Delete the first element in the linked list
       produces:
       - application/json
       responses:
@@ -55,10 +55,10 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/router.HelloResponse'
-      summary: delete at begining
+      summary: Delete the first element
   /length:
     get:
-      description: Retrieve a length of the linked list from the server
+      description: Retrieve and return the number of elements in the linked list
       produces:
       - application/json
       responses:
@@ -66,10 +66,11 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/router.Length'
-      summary: Length of linked list
+      summary: Retrieve the length of the linked list
   /print:
     get:
-      description: Retrieve a hello message from the server
+      description: Retrieve all elements in the linked list and return them as a concatenated
+        string
       produces:
       - application/json
       responses:
@@ -77,10 +78,10 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/router.Print'
-      summary: Print all elements
+      summary: Retrieve all elements
   /start/{key}:
     post:
-      description: Insert data at the start
+      description: Insert a new element at the beginning of the linked list
       parameters:
       - description: Key parameter
         in: path
@@ -94,5 +95,5 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/router.HelloResponse'
-      summary: Save the data
+      summary: Insert data at the start
 swagger: "2.0"
