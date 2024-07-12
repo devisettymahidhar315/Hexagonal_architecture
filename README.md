@@ -1,4 +1,4 @@
-# implementation of linked list using hexagonal architecture by using swagger api
+# implementation of linked list using hexagonal architecture and swagger api
 
 ## run the 
   go run main.go 
