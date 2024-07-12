@@ -1,0 +1,98 @@
+definitions:
+  router.HelloResponse:
+    properties:
+      mess:
+        type: string
+    type: object
+  router.Length:
+    properties:
+      length:
+        type: integer
+    type: object
+  router.Print:
+    properties:
+      print:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /end:
+    delete:
+      description: deleting the data in the ending
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/router.HelloResponse'
+      summary: delete at ending
+  /end/{key}:
+    post:
+      description: Insert data at the end
+      parameters:
+      - description: Key parameter
+        in: path
+        name: key
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/router.HelloResponse'
+      summary: Save the data at the end of the linked list
+  /front:
+    delete:
+      description: deleting the data in the at begining
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/router.HelloResponse'
+      summary: delete at begining
+  /length:
+    get:
+      description: Retrieve a length of the linked list from the server
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/router.Length'
+      summary: Length of linked list
+  /print:
+    get:
+      description: Retrieve a hello message from the server
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/router.Print'
+      summary: Print all elements
+  /start/{key}:
+    post:
+      description: Insert data at the start
+      parameters:
+      - description: Key parameter
+        in: path
+        name: key
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/router.HelloResponse'
+      summary: Save the data
+swagger: "2.0"

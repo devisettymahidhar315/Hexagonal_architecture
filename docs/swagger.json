@@ -1,0 +1,154 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/end": {
+            "delete": {
+                "description": "deleting the data in the ending",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "delete at ending",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/router.HelloResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/end/{key}": {
+            "post": {
+                "description": "Insert data at the end",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Save the data at the end of the linked list",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Key parameter",
+                        "name": "key",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/router.HelloResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/front": {
+            "delete": {
+                "description": "deleting the data in the at begining",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "delete at begining",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/router.HelloResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/length": {
+            "get": {
+                "description": "Retrieve a length of the linked list from the server",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Length of linked list",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/router.Length"
+                        }
+                    }
+                }
+            }
+        },
+        "/print": {
+            "get": {
+                "description": "Retrieve a hello message from the server",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Print all elements",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/router.Print"
+                        }
+                    }
+                }
+            }
+        },
+        "/start/{key}": {
+            "post": {
+                "description": "Insert data at the start",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Save the data",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Key parameter",
+                        "name": "key",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/router.HelloResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "router.HelloResponse": {
+            "type": "object",
+            "properties": {
+                "mess": {
+                    "type": "string"
+                }
+            }
+        },
+        "router.Length": {
+            "type": "object",
+            "properties": {
+                "length": {
+                    "type": "integer"
+                }
+            }
+        },
+        "router.Print": {
+            "type": "object",
+            "properties": {
+                "print": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
